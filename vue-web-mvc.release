@@ -1,0 +1,19 @@
+# 构建源码语言类型
+code.language=java
+
+# 构建打包使用jdk版本
+baseline.jdk=jdk-1.8.0_40
+
+# 构建打包所用的maven版本
+build.tools.maven=maven3.0.5
+
+# 构建打包使用的打包文件
+build.output=vue-web-mvc-web/target/vue-web-mvc-web-release.jar
+
+# 应用部署脚本
+deploy.appctl.path=deploy.sh
+
+# 打包命令
+#build.command=mvn clean package -U -pl !gongzhonghao-auto -DskipTests
+build.command=mvn clean package    -U  -DskipTests -P publish
+

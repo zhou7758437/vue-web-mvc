@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="vue.web.mvc.db.user.UserInfoDao">
+    <insert id="insertUser">
+        INSERT INTO userinfo
+        (`userId`,`userName`,`avatar`,`nickName`)
+        VALUES
+        (#{userId},#{userName},#{avatar},#{nickName})
+    </insert>
+    <update id="updateUser">
+        UPDATE userinfo
+        set `avatar`=#{userInfo.avatar},
+        `nickName`=#{userInfo.nickName}
+        where userId=#{userId}
+    </update>
+    <update id="updateUserPass">
+         UPDATE userinfo
+        set `password`=#{password},
+        `salt`=#{salt}
+        where userId=#{userId}
+    </update>
+    <select id="countByUserName" resultType="java.lang.Integer">
+        SELECT count(1) from userinfo
+        where userName=#{userName}
+    </select>
+    <select id="getByUserName" resultType="vue.web.mvc.db.user.UserInfo">
+        SELECT * FROM  userinfo
+        where `userName`=#{userName}
+        limit 1
+    </select>
+    <select id="getByUserId" resultType="vue.web.mvc.db.user.UserInfo">
+        SELECT * FROM  userinfo
+        where `userId`=#{userId}
+        limit 1
+    </select>
+    <select id="getCriticalByUserName" resultType="vue.web.mvc.db.user.UserWithCriticalInfo">
+        SELECT * FROM  userinfo
+        where `userName`=#{userName}
+        limit 1
+    </select>
+
+
+</mapper>

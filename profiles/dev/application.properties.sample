@@ -1,0 +1,7 @@
+spring.datasource.druid.main.url=jdbc:mysql://wydy.shop:2697/vue-web-mvc?useUnicode=true&characterEncoding=UTF8&autoReconnect=true
+spring.datasource.druid.main.username=****
+spring.datasource.druid.main.password=****
+spring.datasource.druid.main.driver-class-name=com.mysql.jdbc.Driver
+
+app.server.wsPath=http://localhost:8080
+app.server.env=publish

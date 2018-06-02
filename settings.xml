@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+
+<settings>
+    <mirrors>
+        <mirror>
+            <id>aliyun-repo</id>
+            <mirrorOf>!in-project,central,*</mirrorOf>
+            <name>central mirror</name>
+            <url>http://39.106.240.76/nexus/content/groups/public</url>
+        </mirror>
+    </mirrors>
+    <servers>
+        <server>
+            <id>in-project</id>
+            <username>my-lib-repo-reader</username>
+            <password>my-lib-repo-reader</password>
+        </server>
+    </servers>
+
+
+</settings>
