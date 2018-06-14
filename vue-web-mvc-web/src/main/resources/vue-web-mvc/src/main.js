@@ -26,6 +26,9 @@ Vue.use(VueRouter)
 Vue.use(Toaster, {timeout: 5000})
 
 
+import AdminUserManage from './pages/admin/user/UserManage.vue'
+
+
 Vue.prototype.$hasRole = function (role) {
   var getter= store.getters;
   return getter.hasRole(role);
@@ -41,6 +44,10 @@ const routes = [
 
   {path: '/login', component: Login, name: 'login'},
   {path: '/register', component: Register, name: 'register'},
+
+  {path: '/AdminUserManage', component: AdminUserManage, name: 'AdminUserManage'},
+
+
 
 
 ]

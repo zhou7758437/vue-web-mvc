@@ -159,6 +159,29 @@ def rename_folder(src,dest,path):
             print 'rename ' + file + " =>" + f
             os.rename(file, f)
 
+def removeEmptyFolders(path, removeRoot=True):
+  'Function to remove empty folders'
+  if not os.path.isdir(path):
+    return
+
+  # remove empty subfolders
+  files = os.listdir(path)
+  if len(files):
+    for f in files:
+      fullpath = os.path.join(path, f)
+      if fullpath.find('.git') >= 0:
+          continue
+      if fullpath.find('.idea') >= 0:
+          continue
+      if os.path.isdir(fullpath):
+        removeEmptyFolders(fullpath)
+
+  # if folder empty, delete it
+  files = os.listdir(path)
+  if len(files) == 0 and removeRoot:
+    print "Removing empty folder:", path
+    os.rmdir(path)
+
 
 
 # f = []
@@ -183,3 +206,4 @@ rename_folder(template, name, '.')
 multi_replace(template, name, '.')
 rename_package(templateStr,targetPkg,'.')
 move_to_package(templateStr,targetPkg,'.')
+removeEmptyFolders('.')
